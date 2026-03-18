@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shivam CSC Center – Kasat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --saffron: #FF6B00;
+      --saffron-light: #FF9A45;
+      --deep-green: #0A5C36;
+      --green-light: #1A8C55;
+      --navy: #0D1B3E;
+      --gold: #F5C842;
+      --cream: #FFF8EE;
+      --white: #FFFFFF;
+      --text-dark: #1A1A2E;
+      --text-mid: #3D3D5C;
+      --card-bg: #FFFFFF;
+      --shadow: 0 8px 30px rgba(13,27,62,0.10);
+      --border: #e5e2da;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Hind', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── TRICOLOR TOP STRIP ── */
+    .tricolor-strip {
+      height: 6px;
+      background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33% 66.66%, #138808 66.66%);
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 0 0 0 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-emblem {
+      width: 54px;
+      height: 54px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(245,200,66,0.3);
+    }
+
+    .logo-text h1 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    nav { display: flex; gap: 6px; flex-wrap: wrap; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 7px 13px;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    nav a:hover { background: var(--saffron); color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a2c5e 55%, var(--deep-green) 100%);
+      color: #fff;
+      padding: 70px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245,200,66,0.15);
+      border: 1px solid rgba(245,200,66,0.4);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      animation: fadeDown 0.7s ease forwards;
+    }
+
+    .hero h2 {
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      animation: fadeDown 0.8s ease 0.1s both;
+    }
+
+    .hero h2 span { color: var(--saffron-light); }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      animation: fadeDown 0.8s ease 0.2s both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeDown 0.8s ease 0.3s both;
+    }
+
+    .btn-primary {
+      background: var(--saffron);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(255,107,0,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,0,0.45); }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.45);
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 52px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.5s both;
+    }
+
+    .stat {
+      text-align: center;
+    }
+    .stat .num {
+      font-family: 'Baloo 2', cursive;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+    .stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 64px 24px; }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .section-title .tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title h3 {
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .section-title h3 span { color: var(--saffron); }
+
+    .section-title p {
+      color: var(--text-mid);
+      font-size: 0.97rem;
+      margin-top: 8px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── SERVICES GRID ── */
+    #services { background: var(--cream); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 22px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--saffron), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(13,27,62,0.14); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .service-card h4 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .service-card .badge {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 10px;
+    }
+
+    .badge-free { background: #e6f9ee; color: #0A5C36; }
+    .badge-fee { background: #fff3e0; color: #b35000; }
+
+    /* ── SCHEMES SECTION ── */
+    #schemes { background: #fff; }
+
+    .schemes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .scheme-card {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .scheme-card:hover { transform: translateY(-4px); }
+
+    .scheme-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .scheme-icon {
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+
+    .scheme-header h4 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .scheme-header h4 span {
+      display: block;
+      font-family: 'Hind', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--text-mid);
+    }
+
+    .scheme-card p {
+      font-size: 0.84rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    .scheme-card ul {
+      padding-left: 18px;
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .scheme-btn {
+      margin-top: auto;
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .scheme-btn:hover { background: var(--saffron); }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: linear-gradient(135deg, var(--navy) 0%, #172550 100%); color: #fff; }
+
+    #how .section-title h3 { color: #fff; }
+    #how .section-title p { color: rgba(255,255,255,0.65); }
+
+    .steps {
+      display: flex;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+      padding: 20px 16px;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -10px;
+      top: 36px;
+      font-size: 1.4rem;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      border-radius: 50%;
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      box-shadow: 0 4px 16px rgba(255,107,0,0.35);
+    }
+
+    .step h4 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .step p { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--cream); }
+
+    .contact-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .contact-info {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 28px;
+    }
+
+    .contact-info h4 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .contact-row .ico {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-row .info strong {
+      display: block;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2px;
+    }
+    .contact-row .info span { font-size: 0.95rem; }
+
+    .hours-box {
+      background: rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-top: 20px;
+    }
+
+    .hours-box h5 {
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.83rem; margin-bottom: 6px; }
+    .hours-row span:last-child { color: rgba(255,255,255,0.65); }
+
+    /* contact form */
+    .contact-form {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .contact-form h4 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'Hind', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--saffron);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      color: #fff;
+      border: none;
+      padding: 13px;
+      border-radius: 12px;
+      font-family: 'Baloo 2', cursive;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── NOTICE TICKER ── */
+    .ticker-wrap {
+      background: var(--deep-green);
+      color: #fff;
+      padding: 10px 0;
+      overflow: hidden;
+    }
+
+    .ticker-inner {
+      display: flex;
+      gap: 80px;
+      white-space: nowrap;
+      animation: ticker 28s linear infinite;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .ticker-inner span::before { content: "📢 "; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.83rem;
+    }
+
+    footer strong { color: var(--gold); }
+
+    /* ── FLOATING WHATSAPP ── */
+    .wa-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: #fff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      text-decoration: none;
+      z-index: 999;
+      transition: transform 0.2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .header-inner { flex-direction: column; gap: 10px; }
+      nav { justify-content: center; }
+      .contact-wrap { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TRICOLOR STRIP -->
+<div class="tricolor-strip"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-emblem">🇮🇳</div>
+      <div class="logo-text">
+        <h1>Shivam CSC Center</h1>
+        <p>Common Service Center • Kasat, Araria, Bihar</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#services">सेवाएं</a>
+      <a href="#schemes">योजनाएं</a>
+      <a href="#how">प्रक्रिया</a>
+      <a href="#contact">संपर्क</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>Aadhar Card नया बनवाएं व अपडेट करें</span>
+    <span>PAN Card सिर्फ 48 घंटे में</span>
+    <span>Ladli Behna Yojana आवेदन शुरू</span>
+    <span>Ayushman Bharat Card बनवाएं</span>
+    <span>Ration Card नया व सुधार</span>
+    <span>Passport & Driving License सहायता</span>
+    <span>Aadhar Card नया बनवाएं व अपडेट करें</span>
+    <span>PAN Card सिर्फ 48 घंटे में</span>
+    <span>Ladli Behna Yojana आवेदन शुरू</span>
+    <span>Ayushman Bharat Card बनवाएं</span>
+    <span>Ration Card नया व सुधार</span>
+    <span>Passport & Driving License सहायता</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ Official CSC Center – Kasat, Araria, Bihar ✦</div>
+  <h2>सरकारी सेवाएं अब<br/><span>आपके द्वार पर</span></h2>
+  <p>Shivam CSC Center में आपका स्वागत है। आधार, पैन, राशन कार्ड, सरकारी योजनाओं से लेकर सभी दस्तावेज़ एक ही छत के नीचे।</p>
+  <div class="hero-btns">
+    <a href="#services" class="btn-primary">🔍 सेवाएं देखें</a>
+    <a href="#contact" class="btn-outline">📞 अभी संपर्क करें</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="num">5000+</span><span class="label">Happy Customers</span></div>
+    <div class="stat"><span class="num">30+</span><span class="label">सरकारी सेवाएं</span></div>
+    <div class="stat"><span class="num">10+</span><span class="label">Years Experience</span></div>
+    <div class="stat"><span class="num">100%</span><span class="label">Trusted & Certified</span></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-title">
+    <div class="tag">Our Services</div>
+    <h3>हमारी <span>सेवाएं</span></h3>
+    <p>सभी प्रमुख सरकारी दस्तावेज़ और सेवाएं यहाँ उपलब्ध हैं।</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#fff3e0;">🪪</div>
+      <h4>Aadhar Card</h4>
+      <p>नया आधार कार्ड बनवाएं, नाम/पता/मोबाइल अपडेट करें, बायोमेट्रिक सुधार, डुप्लीकेट आधार प्रिंट।</p>
+      <span class="badge badge-free">✅ सरकारी दर</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#e8f4fd;">🃏</div>
+      <h4>PAN Card</h4>
+      <p>नया PAN कार्ड, PAN सुधार, UTI/NSDL आवेदन, 48 घंटे में घर पर डिलीवरी।</p>
+      <span class="badge badge-fee">₹ Nominal Fee</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#e6f9ee;">🍚</div>
+      <h4>Ration Card</h4>
+      <p>नया राशन कार्ड, सदस्य जोड़ना/हटाना, पता परिवर्तन, BPL/APL/Antyodaya।</p>
+      <span class="badge badge-free">✅ सरकारी दर</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#fce4ec;">🏥</div>
+      <h4>Ayushman Bharat Card</h4>
+      <p>PM-JAY योजना के तहत ₹5 लाख तक का मुफ्त इलाज। नया कार्ड तुरंत बनवाएं।</p>
+      <span class="badge badge-free">✅ बिल्कुल मुफ्त</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#ede7f6;">🛂</div>
+      <h4>Passport Seva</h4>
+      <p>पासपोर्ट आवेदन, रिन्यूअल, Tatkal, तथा Police Verification सहायता।</p>
+      <span class="badge badge-fee">₹ Nominal Fee</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#e3f2fd;">🚗</div>
+      <h4>Driving Licence</h4>
+      <p>नया DL आवेदन, DL रिन्यूअल, Learner's Licence, RC Transfer सहायता।</p>
+      <span class="badge badge-fee">₹ Nominal Fee</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#f9fbe7;">🏦</div>
+      <h4>Jan Dhan / Bank Account</h4>
+      <p>Zero balance account खोलें, KYC अपडेट, DBT Link, PMJJBY/PMSBY बीमा।</p>
+      <span class="badge badge-free">✅ बिल्कुल मुफ्त</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#fff8e1;">📜</div>
+      <h4>Jati / Niwas / Aay Praman</h4>
+      <p>जाति प्रमाण पत्र, निवास प्रमाण पत्र, आय प्रमाण पत्र – सभी e-District सेवाएं।</p>
+      <span class="badge badge-fee">₹ Nominal Fee</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#e0f7fa;">💡</div>
+      <h4>Bijli Bill / Utility Pay</h4>
+      <p>बिजली बिल, पानी बिल, गैस, DTH, Mobile Recharge – सब कुछ एक जगह।</p>
+      <span class="badge badge-free">✅ सरकारी दर</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#fce4ec;">🎓</div>
+      <h4>Scholarship & Education</h4>
+      <p>MP Scholarship, NSP Portal, eKalyan, ITI/PMKVY Registration, Certificate Download।</p>
+      <span class="badge badge-free">✅ बिल्कुल मुफ्त</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#e8f5e9;">🌾</div>
+      <h4>Kisan Seva (PM-Kisan)</h4>
+      <p>PM-Kisan Registration, eKYC, Beneficiary Status, Fasal Bima, Kisan Credit Card।</p>
+      <span class="badge badge-free">✅ सरकारी दर</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:#fff3e0;">📱</div>
+      <h4>Online Form / Apply</h4>
+      <p>किसी भी सरकारी नौकरी का फॉर्म, MPESB, UPSC, SSC, Railway, Army Bharti।</p>
+      <span class="badge badge-fee">₹ Nominal Fee</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCHEMES -->
+<section id="schemes">
+  <div class="section-title">
+    <div class="tag">Government Schemes</div>
+    <h3>सरकारी <span>योजनाएं</span></h3>
+    <p>केंद्र और मध्यप्रदेश सरकार की लाभकारी योजनाओं में हम आपकी मदद करते हैं।</p>
+  </div>
+
+  <div class="schemes-grid">
+
+    <div class="scheme-card">
+      <div class="scheme-header">
+        <div class="scheme-icon">👩‍👧</div>
+        <h4>Ladli Behna Yojana<span>MP Government</span></h4>
+      </div>
+      <p>मध्यप्रदेश सरकार की इस योजना में पात्र महिलाओं को प्रतिमाह ₹1250 सीधे बैंक खाते में मिलते हैं।</p>
+      <ul>
+        <li>e-KYC आधार से लिंक</li>
+        <li>आवेदन फॉर्म भरवाएं</li>
+        <li>Status Check करें</li>
+      </ul>
+      <a href="#contact" class="scheme-btn">आवेदन करें →</a>
+    </div>
+
+    <div class="scheme-card">
+      <div class="scheme-header">
+        <div class="scheme-icon">🏠</div>
+        <h4>PM Awas Yojana<span>Central Government</span></h4>
+      </div>
+      <p>शहरी व ग्रामीण गरीबों को पक्का घर। PMAY-G और PMAY-U दोनों के लिए आवेदन यहाँ करें।</p>
+      <ul>
+        <li>नया Registration</li>
+        <li>आवेदन Status</li>
+        <li>Grievance Submit</li>
+      </ul>
+      <a href="#contact" class="scheme-btn">आवेदन करें →</a>
+    </div>
+
+    <div class="scheme-card">
+      <div class="scheme-header">
+        <div class="scheme-icon">⛽</div>
+        <h4>Ujjwala Yojana<span>PM Free Gas Scheme</span></h4>
+      </div>
+      <p>BPL परिवारों की महिलाओं को मुफ्त LPG कनेक्शन। नया आवेदन और KYC सहायता।</p>
+      <ul>
+        <li>नया कनेक्शन आवेदन</li>
+        <li>eKYC अपडेट</li>
+        <li>Subsidy Status</li>
+      </ul>
+      <a href="#contact" class="scheme-btn">आवेदन करें →</a>
+    </div>
+
+    <div class="scheme-card">
+      <div class="scheme-header">
+        <div class="scheme-icon">💊</div>
+        <h4>Ayushman Bharat<span>PM Jan Arogya Yojana</span></h4>
+      </div>
+      <p>सालाना ₹5 लाख तक का मुफ्त स्वास्थ्य बीमा। पात्र परिवारों का Ayushman Card अभी बनवाएं।</p>
+      <ul>
+        <li>Eligibility Check</li>
+        <li>Card Download</li>
+        <li>Hospital List</li>
+      </ul>
+      <a href="#contact" class="scheme-btn">Card बनवाएं →</a>
+    </div>
+
+    <div class="scheme-card">
+      <div class="scheme-header">
+        <div class="scheme-icon">🌾</div>
+        <h4>PM Kisan Samman Nidhi<span>₹6000 per year</span></h4>
+      </div>
+      <p>किसानों को सालाना ₹6000 तीन किस्तों में। eKYC, Registration, और Installment Status यहाँ।</p>
+      <ul>
+        <li>नया Registration</li>
+        <li>eKYC करवाएं</li>
+        <li>Beneficiary Status</li>
+      </ul>
+      <a href="#contact" class="scheme-btn">आवेदन करें →</a>
+    </div>
+
+    <div class="scheme-card">
+      <div class="scheme-header">
+        <div class="scheme-icon">👴</div>
+        <h4>PM Vaya Vandana / Old Age Pension<span>Senior Citizens</span></h4>
+      </div>
+      <p>60 वर्ष से अधिक बुजुर्गों के लिए वृद्धावस्था पेंशन। MP Social Security Pension Registration।</p>
+      <ul>
+        <li>नया आवेदन</li>
+        <li>Pension Status</li>
+        <li>Bank Link</li>
+      </ul>
+      <a href="#contact" class="scheme-btn">आवेदन करें →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-title">
+    <div class="tag">Simple Process</div>
+    <h3 style="color:#fff;">कैसे करें <span style="color:var(--gold);">आवेदन?</span></h3>
+    <p>मात्र 4 आसान चरणों में अपना काम पूरा करें।</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>केंद्र पर आएं</h4>
+      <p>अपने दस्तावेज़ लेकर Shivam CSC Center, Kasat पर पधारें।</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>जानकारी दें</h4>
+      <p>हमारी टीम आपकी सेवा चुनने में मदद करेगी।</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>आवेदन भरें</h4>
+      <p>हम ऑनलाइन फॉर्म भरकर Acknowledgement देंगे।</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>काम पूरा!</h4>
+      <p>निर्धारित समय में आपका दस्तावेज़ / कार्ड तैयार हो जाएगा।</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-title">
+    <div class="tag">Contact Us</div>
+    <h3>हमसे <span>संपर्क करें</span></h3>
+    <p>किसी भी सेवा के लिए आज ही संपर्क करें।</p>
+  </div>
+
+  <div class="contact-wrap">
+
+    <div class="contact-info">
+      <h4>📍 Shivam CSC Center</h4>
+
+      <div class="contact-row">
+        <div class="ico">📍</div>
+        <div class="info">
+          <strong>पता (Address)</strong>
+          <span>Kasat, Araria, Bihar – 854333</span>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="ico">📞</div>
+        <div class="info">
+          <strong>फोन / WhatsApp</strong>
+          <span>+91 XXXXX XXXXX</span>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="ico">✉️</div>
+        <div class="info">
+          <strong>Email</strong>
+          <span>shivamcsc.kasat@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="hours-box">
+        <h5>🕐 खुलने का समय</h5>
+        <div class="hours-row"><span>सोमवार – शनिवार</span><span>9:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span>रविवार</span><span>10:00 AM – 2:00 PM</span></div>
+        <div class="hours-row"><span>सरकारी छुट्टी</span><span>बंद</span></div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h4>📋 सेवा के लिए अनुरोध</h4>
+      <div class="form-group">
+        <label>आपका नाम *</label>
+        <input type="text" placeholder="पूरा नाम लिखें"/>
+      </div>
+      <div class="form-group">
+        <label>मोबाइल नंबर *</label>
+        <input type="tel" placeholder="+91 XXXXXXXXXX"/>
+      </div>
+      <div class="form-group">
+        <label>किस सेवा के लिए? *</label>
+        <select>
+          <option value="">-- सेवा चुनें --</option>
+          <option>Aadhar Card</option>
+          <option>PAN Card</option>
+          <option>Ration Card</option>
+          <option>Ayushman Card</option>
+          <option>Ladli Behna Yojana</option>
+          <option>PM Awas Yojana</option>
+          <option>PM Kisan</option>
+          <option>Passport</option>
+          <option>Driving Licence</option>
+          <option>Scholarship Form</option>
+          <option>अन्य (Other)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>संदेश (Optional)</label>
+        <textarea placeholder="कोई विशेष जानकारी या सवाल..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="alert('आपका अनुरोध प्राप्त हो गया! हम जल्द ही संपर्क करेंगे। 🙏')">
+        📤 अनुरोध भेजें
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>🇮🇳 <strong>Shivam CSC Center</strong> – Kasat, Araria, Bihar – 854333 &nbsp;|&nbsp; Authorized Common Service Center</p>
+  <p style="margin-top:8px; font-size:0.75rem; opacity:0.6;">Digital India • Government of India • All services at your doorstep</p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="wa-btn" title="WhatsApp पर संपर्क करें">
+  💬
+</a>
+
+</body>
+</html>
